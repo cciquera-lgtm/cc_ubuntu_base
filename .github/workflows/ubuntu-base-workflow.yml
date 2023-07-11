@@ -35,7 +35,7 @@ jobs:
         uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
         with:
           images: cciquera/cc_ubuntu_base
-          tags: 0.01
+          tags: ${{env.GITHUB_REF_NAME}}
           labels: cc-ubuntu-base-test1
       
       - name: Build and push Docker image
