@@ -15,5 +15,6 @@ COPY    scripts   /local/scripts/
 COPY    packages  /local/packages/
 
 # Install / Configure NCPA
+# Adding a comment
 WORKDIR /local/scripts/ncpa/bin
 RUN ./setup_ncpa.sh ; rm -f /local/packages/*
