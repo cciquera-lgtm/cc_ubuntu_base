@@ -10,8 +10,12 @@
 name: Publish Docker image
 
 on:
-  release:
-    types: [published]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag (required) for the docker image being built'
+        required: true
+        type: string
 
 jobs:
   push_to_registry:
@@ -35,7 +39,7 @@ jobs:
         uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
         with:
           images: cciquera/cc_ubuntu_base
-          tags: ${{env.GITHUB_REF_NAME}}
+          tags: ${{ inputs.tag }}
           labels: cc-ubuntu-base-test1
       
       - name: Build and push Docker image
