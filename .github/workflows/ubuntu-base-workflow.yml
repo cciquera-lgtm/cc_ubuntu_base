@@ -39,7 +39,9 @@ jobs:
         uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
         with:
           images: cciquera/cc_ubuntu_base
-          tags: ${{ inputs.tag }}, latest
+          flavor: |
+            latest=auto
+          tags: ${{ inputs.tag }}
           labels: cc-ubuntu-base-test1
       
       - name: Build and push Docker image
@@ -48,5 +50,5 @@ jobs:
           context: "{{defaultContext}}:main/resources/docker"
           file: ./Dockerfile
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
+          tags: ${{ steps.meta.outputs.tags }}, latest
           labels: ${{ steps.meta.outputs.labels }}
