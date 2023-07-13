@@ -39,8 +39,7 @@ jobs:
         uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
         with:
           images: cciquera/cc_ubuntu_base
-          flavor: |
-            latest=auto
+          flavor: latest=true
           tags: ${{ inputs.tag }}
           labels: cc-ubuntu-base-test1
       
