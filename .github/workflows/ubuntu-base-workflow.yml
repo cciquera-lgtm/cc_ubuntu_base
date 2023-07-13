@@ -55,7 +55,9 @@ jobs:
     name: Report Push to Registry
     runs-on: ubuntu-latest
     steps:
-      - name: echo "SHA_SHORT=${GITHUB_SHA:0:7}" >> $GITHUB_ENV
+      - name: Exrtact SHA short 
+        run: echo "SHA_SHORT=${GITHUB_SHA:0:7}" >> $GITHUB_ENV
+      - name: "report to port"
         uses: port-labs/port-github-action@v1
         with:
           clientID: ${{ secrets.PORT_CLIENT_ID }}
