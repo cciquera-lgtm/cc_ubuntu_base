@@ -57,12 +57,14 @@ jobs:
     steps:
       - name: Exrtact SHA short 
         run: echo "SHA_SHORT=${GITHUB_SHA:0:7}" >> $GITHUB_ENV
+       - name: Set current date as env variable
+         run: echo "NOW=$(date +'%Y-%m-%dT%H:%M:%S')" >> $GITHUB_ENV
       - name: "report to port"
         uses: port-labs/port-github-action@v1
         with:
           clientID: ${{ secrets.PORT_CLIENT_ID }}
           clientSecret: ${{ secrets.PORT_CLIENT_SECRET }}
-          identifier: ${{ env.SHA_SHORT }}
+          identifier: Ubuntu-Base-${{ env.SHA_SHORT }}-${{ env.NOW }}
           blueprint: ubuntu_base_image
           properties: |
             {
