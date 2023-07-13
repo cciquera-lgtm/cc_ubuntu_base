@@ -68,6 +68,6 @@ jobs:
             {
                "jobUrl": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}",
                "deployingUser": "${{ github.actor }}",
-               "imageTag": "latest",
+               "imageTag": "latest"
             }
 
