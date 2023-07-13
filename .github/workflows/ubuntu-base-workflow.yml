@@ -68,5 +68,4 @@ jobs:
                "deployingUser": "${{ github.actor }}",
                "imageTag": "latest",
             }
-          runId: "${{fromJson(inputs.port_payload).context.runId}}"
 
